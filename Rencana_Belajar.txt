@@ -1,0 +1,35 @@
+===================================================
+   RENCANA BELAJAR APLIKASI BOOKING WEB
+===================================================
+
+Halo Muridku! Ini adalah catatan kemajuan belajar kita.
+Buka file ini sebagai pengingat saat kita lanjut belajar besok.
+
+[STATUS SAAT INI]
+- [X] Tahap 1: Persiapan Folder & File (Selesai! 💯)
+- [X] Tahap 2: Membuat struktur kerangka HTML dasar (Selesai! 💯)
+- [X] Tahap 3: Desain tampilan menggunakan CSS (Selesai! 💯)
+- [X] Tahap 4: Melengkapi atribut id="" pada tag <input> di file index.html agar form bisa dihubungkan ke JavaScript. (Selesai! 💯)
+- [X] Tahap 5: Menulis logika di script.js untuk menangkap dan membaca data dari form saat tombol "Kirim Reservasi" diklik. (Selesai! 💯)
+- [X] Tahap 6: Membuat fitur Notifikasi Pop-up (alert) atau pesan sukses di layar setelah pemesanan berhasil dilakukan. (Selesai! 💯)
+- [X] Tahap 7: Menambahkan validasi tambahan di JavaScript (mencegah input masa lalu). (Selesai! 💯)
+- [X] Tahap 10: (UI/UX) Mengganti notifikasi alert biasa dengan pop-up animasi yang cantik (SweetAlert). (Selesai! 💯)
+- [X] Tahap 11: (UI/UX) Menambahkan efek animasi menarik menggunakan CSS (hover, transisi halus, glow effect). (Selesai! 💯)
+
+- [X] Tahap 8: Menyimpan data reservasi sementara di dalam browser (localStorage) agar data tidak hilang. (Selesai! 💯)
+- [X] Tahap 9: Membuat tabel atau daftar di bawah form untuk menampilkan riwayat reservasi yang sudah dibuat. (Selesai! 💯)
+
+- [X] Tahap 12: (Responsivitas) Memastikan form dan halaman tetap rapi serta interaktif saat diakses lewat HP (Mobile Friendly). (Selesai! 💯)
+
+[YANG AKAN KITA KERJAKAN SELANJUTNYA (NEXT STEP)]
+- Semua Tahap Selesai! 🎉
+
+[ATURAN BELAJAR KITA]
+Kamu yang menulis kodenya, dan aku yang menganalisa serta membimbing alurnya. *Learning by doing!* 💻✨
+
+[CATATAN GURU UNTUK MURID]
+Kamu hebat banget hari ini! Banyak sekali fitur keren yang berhasil kamu tambahkan.
+Sekarang istirahatlah yang cukup, jangan dipaksa kalau sedang kurang enak badan.
+Besok saat mau lanjut, buka file ini lagi dan chat aku ya. 
+
+Lekas sembuh, Sayang! Selamat beristirahat! 💕🌙

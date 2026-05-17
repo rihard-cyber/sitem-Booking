@@ -1,0 +1,337 @@
+/* ===== Import Font Google ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ===== Register CSS Custom Property untuk angle ===== */
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+/* ===== Keyframe Animasi ===== */
+
+/* Animasi Fade-In dari bawah */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasi lampu warna-warni BERPUTAR di pinggiran card */
+@keyframes spinBorder {
+    0%   { --angle: 0deg; }
+    100% { --angle: 360deg; }
+}
+
+/* Animasi glow luar yang berdenyut & berganti warna */
+@keyframes glowPulse {
+    0%   { box-shadow: 0 0 18px 6px rgba(255, 0, 128, 0.6),  0 0 45px 12px rgba(255, 0, 128, 0.2); }
+    16%  { box-shadow: 0 0 18px 6px rgba(255, 100, 0, 0.6),  0 0 45px 12px rgba(255, 100, 0, 0.2); }
+    33%  { box-shadow: 0 0 18px 6px rgba(255, 215, 0, 0.6),  0 0 45px 12px rgba(255, 215, 0, 0.2); }
+    50%  { box-shadow: 0 0 18px 6px rgba(0, 255, 136, 0.6),  0 0 45px 12px rgba(0, 255, 136, 0.2); }
+    66%  { box-shadow: 0 0 18px 6px rgba(0, 207, 255, 0.6),  0 0 45px 12px rgba(0, 207, 255, 0.2); }
+    83%  { box-shadow: 0 0 18px 6px rgba(123, 47, 255, 0.6), 0 0 45px 12px rgba(123, 47, 255, 0.2); }
+    100% { box-shadow: 0 0 18px 6px rgba(255, 0, 128, 0.6),  0 0 45px 12px rgba(255, 0, 128, 0.2); }
+}
+
+/* Animasi shimmer untuk header title */
+@keyframes shimmerText {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+/* Animasi item riwayat masuk */
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ===== Base Body ===== */
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #1a1a2e, #16213e);
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* ===== Card Wrapper dengan Rainbow Spinning Border ===== */
+/*
+   Teknik:
+   - Wrapper (.card-rainbow) = frame tipis dengan conic-gradient berputar
+   - ::before pseudo-element = blur glow di balik card untuk efek cahaya menyebar
+   - .card-inner = konten gelap di atasnya
+*/
+
+.card-rainbow {
+    position: relative;
+    padding: 3px;                   /* tebal border lampu */
+    border-radius: 18px;
+    background: conic-gradient(
+        from var(--angle),
+        #ff0080, #ff4500, #ffd700,
+        #00ff88, #00cfff, #7b2fff,
+        #ff0080
+    );
+    animation:
+        spinBorder 3s linear infinite,
+        glowPulse 3s linear infinite;
+    width: 100%;
+    max-width: 540px;
+    box-sizing: border-box;
+    margin-bottom: 36px;
+    /* Isolasi stacking context agar ::before tidak menembus card-inner */
+    isolation: isolate;
+}
+
+/* Lapisan blur cahaya di BELAKANG card (efek aura menyebar) */
+.card-rainbow::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 22px;
+    background: conic-gradient(
+        from var(--angle),
+        #ff0080, #ff4500, #ffd700,
+        #00ff88, #00cfff, #7b2fff,
+        #ff0080
+    );
+    filter: blur(20px);
+    opacity: 0.65;
+    z-index: -1;
+    animation: spinBorder 3s linear infinite;
+}
+
+/* Inner card (konten di dalam wrapper) */
+.card-inner {
+    background: linear-gradient(145deg, #1a1a2e, #22223b);
+    border-radius: 16px;
+    padding: 32px 28px;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Header ===== */
+header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+header h1 {
+    margin: 0 0 8px 0;
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(
+        90deg,
+        #ff0080, #ff4500, #ffd700, #00ff88, #00cfff, #7b2fff, #ff0080
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmerText 3s linear infinite;
+}
+
+header p {
+    color: #a0aec0;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* ===== Form Group ===== */
+.form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label */
+label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: #cbd5e0;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+/* Input & Textarea */
+input,
+textarea {
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #e2e8f0;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Saat input fokus — glow biru elektrik */
+input:focus,
+textarea:focus {
+    border-color: rgba(0, 207, 255, 0.7);
+    background: rgba(0, 207, 255, 0.08);
+    box-shadow:
+        0 0 0 3px rgba(0, 207, 255, 0.15),
+        0 0 16px rgba(0, 207, 255, 0.2);
+    transform: scale(1.01);
+}
+
+/* Date & time input — fix warna di dark mode */
+input[type="date"],
+input[type="time"] {
+    color-scheme: dark;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* ===== Tombol Submit ===== */
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #7b2fff, #00cfff);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+button[type="submit"]:hover::before {
+    left: 100%;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 8px 24px rgba(123, 47, 255, 0.5),
+        0 0 20px rgba(0, 207, 255, 0.3);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0px) scale(0.98);
+}
+
+/* ===== Riwayat Container (pakai card rainbow juga) ===== */
+
+/* Judul Riwayat */
+.riwayat-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin: 0 0 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.riwayat-title::before {
+    content: '📋';
+    font-size: 1.1rem;
+}
+
+/* Item riwayat satu-satu */
+.riwayat-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    animation: slideInLeft 0.4s ease both;
+    transition: all 0.3s ease;
+}
+
+.riwayat-item:hover {
+    background: rgba(0, 207, 255, 0.07);
+    border-color: rgba(0, 207, 255, 0.3);
+    transform: translateX(4px);
+}
+
+.riwayat-item strong {
+    color: #00cfff;
+    font-size: 0.97rem;
+}
+
+.riwayat-item small {
+    color: #94a3b8;
+    font-size: 0.82rem;
+    display: block;
+    margin-top: 5px;
+}
+
+.riwayat-item .riwayat-meta {
+    color: #c0cfe0;
+    font-size: 0.88rem;
+    margin-top: 2px;
+}
+
+/* Pesan kosong riwayat */
+.riwayat-kosong {
+    color: #64748b;
+    font-style: italic;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* ===== Responsivitas Mobile ===== */
+@media screen and (max-width: 600px) {
+    body {
+        padding: 16px 12px;
+    }
+
+    .card-inner {
+        padding: 22px 18px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header p {
+        font-size: 0.85rem;
+    }
+
+    input,
+    textarea,
+    button[type="submit"] {
+        font-size: 14px;
+        padding: 10px 12px;
+    }
+}

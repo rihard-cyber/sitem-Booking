@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReservasiKu - Booking Jasa</title>
+    <meta name="description" content="Pesan layanan jasa profesional dengan mudah dan cepat bersama ReservasiKu.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ===== Card Utama: Form Reservasi ===== -->
+    <div class="card-rainbow" id="cardForm">
+        <div class="card-inner">
+            <header>
+                <h1>ReservasiKu</h1>
+                <p>Pesan layanan jasa profesional dengan mudah dan cepat</p>
+            </header>
+
+            <main>
+                <form id="reservasiForm" action="">
+
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" placeholder="Masukkan nama lengkap..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="contoh@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="layanan">Layanan yang Dipesan</label>
+                        <input type="text" id="layanan" placeholder="Contoh: Servis AC, Fotografi..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tanggal">Tanggal</label>
+                        <input type="date" id="tanggal" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="waktu">Waktu</label>
+                        <input type="time" id="waktu" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="catatan">Catatan Tambahan</label>
+                        <textarea id="catatan" rows="4" placeholder="Tuliskan catatan atau permintaan khusus..."></textarea>
+                    </div>
+
+                    <button type="submit" id="btnKirim">🚀 Kirim Reservasi</button>
+                </form>
+            </main>
+        </div>
+    </div>
+
+    <!-- ===== Card Riwayat Reservasi ===== -->
+    <div class="card-rainbow" id="cardRiwayat">
+        <div class="card-inner">
+            <h2 class="riwayat-title">Riwayat Reservasi</h2>
+            <div id="riwayatList">
+                <p class="riwayat-kosong">Belum ada riwayat reservasi.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SweetAlert2 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
